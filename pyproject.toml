@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "akarsu"
+version = "0.1.0"
+description = "New Generation Profiler based on PEP 669"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {file = "LICENSE.txt"}
+keywords = ["profiler", "PEP669"]
+authors = [
+  { name = "Furkan Onder", email = "furkanonder@protonmail.com" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/furkanonder/akarsu"
+"Bug Reports" = "https://github.com/furkanonder/akarsu/issues"
+"Source" = "https://github.com/furkanonder/akarsu"
+
+[project.scripts]
+akarsu = "akarsu.__main__:main"
+
+[tool.black]
+target-version = ["py312"]
+preview = true
+
+[tool.isort]
+profile = "black"
+
+[tool.docformatter]
+recursive = true
+wrap-summaries = 79
+wrap-descriptions = 79
+blank = true
+
+[tool.mypy]
+warn_unused_configs = true
+no_strict_optional = true
+ignore_missing_imports = true
+show_error_codes = true
