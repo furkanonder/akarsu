@@ -22,7 +22,7 @@ def main() -> None:
         print(f"{'Count':>10}{'Event Type':^20}{'Filename(function)':<50}")
         for event, count in Counter(events).most_common():
             event_type, file_name, func_name = event
-            counter[event_type] += 1
+            counter[event_type] += count
             print(f"{count:>10}{event_type:^20}{f'{file_name}({func_name})':<50}")
 
         print(f"\nTotal number of events: {counter.total()}")
