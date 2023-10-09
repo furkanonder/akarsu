@@ -1,5 +1,5 @@
 repos:
-  - repo: https://github.com/psf/black
+  - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 23.9.1
     hooks:
       - id: black
@@ -47,6 +47,10 @@ repos:
     hooks:
       - id: end-of-file-fixer
         files: "\\.(py|.txt|.yaml|.json|.in|.md|.toml|.cfg|.html|.yml)$"
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: trailing-whitespace
 
   - repo: local
     hooks:
