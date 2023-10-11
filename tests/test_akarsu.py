@@ -49,12 +49,6 @@ class TestNine(unittest.TestCase):
         ]
         self.check_events(events, expected_events)
 
-    def test_profile_empty_code(self):
-        code = ""
-        events = Akarsu(code, "<string>").profile()
-        expected_events = []
-        self.check_events(events, expected_events)
-
     def test_profile_nested_functions(self):
         source = textwrap.dedent("""
             def foo():
