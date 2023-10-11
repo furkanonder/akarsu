@@ -1,3 +1,4 @@
+import re
 import sys
 import types
 from typing import Any, Final, cast
@@ -20,12 +21,17 @@ TRACKED_EVENTS: Final[tuple[tuple[int, str], ...]] = (
     (EVENTS.STOP_ITERATION, "STOP ITERATION"),
 )
 EVENT_SET: Final[int] = EVENTS.CALL + sum(ev for ev, _ in TRACKED_EVENTS)
+PATTERN: Final[str] = r" at 0x[0-9a-f]+"
 
 
 class Akarsu:
     def __init__(self, code: str, file_name: str) -> None:
         self.code = code
         self.file_name = file_name
+
+    def format_func_name(self, event: tuple[str, str, str]) -> tuple[str, str, str]:
+        event_type, file_name, func_name = event
+        return (event_type, file_name, re.sub(PATTERN, "", func_name))
 
     def profile(self) -> list[tuple[str, str, str]]:
         events = []
@@ -64,6 +70,10 @@ class Akarsu:
             MONITOR.set_events(TOOL, 0)
             MONITOR.free_tool_id(TOOL)
 
-            events = [e for e in events[2:-3] if "____wrapper____" not in e[2]]
+            events = [
+                self.format_func_name(event)
+                for event in events[2:-3]
+                if "____wrapper____" not in event[2]
+            ]
 
         return events
