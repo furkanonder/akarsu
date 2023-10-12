@@ -12,7 +12,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="New Generation Profiler based on PEP 669"
     )
-    parser.add_argument("-v", "--version", action="version", version="0.1.0")
+    parser.add_argument("-v", "--version", action="version", version="0.2.0")
     parser.add_argument("-f", "--file", type=str, help="Path to the file")
     parser.add_argument(
         "-c",
