@@ -55,3 +55,25 @@ Total number of events: 8
   C_CALL = 1
   C_RETURN = 1
 ```
+
+---
+
+If you want to show only the function calls in the output, you can use the `-c` or
+`--calls` argument.
+
+```sh
+akarsu -c -f example.py
+```
+
+Output:
+
+```
+     Count     Event Type     Filename(function)
+         1      PY_CALL       example.py(bar)
+         1      PY_CALL       example.py(foo)
+         1       C_CALL       example.py(<built-in function isinstance>)
+
+Total number of events: 3
+  PY_CALL = 2
+  C_CALL = 1
+```

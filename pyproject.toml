@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "akarsu"
-version = "0.1.0"
+version = "0.2.0"
 description = "New Generation Profiler based on PEP 669"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -37,9 +37,6 @@ akarsu = "akarsu.__main__:main"
 target-version = ["py312"]
 preview = true
 
-[tool.isort]
-profile = "black"
-
 [tool.docformatter]
 recursive = true
 wrap-summaries = 79
@@ -51,3 +48,16 @@ warn_unused_configs = true
 no_strict_optional = true
 ignore_missing_imports = true
 show_error_codes = true
+
+[tool.ruff]
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "UP",  # pyupgrade,
+  "I",   # isort
+]
+mccabe = { max-complexity = 14 }
+target-version = "py312"
+
+[tool.ruff.per-file-ignores]
+'src/akarsu/akarsu.py' = ["E722"]

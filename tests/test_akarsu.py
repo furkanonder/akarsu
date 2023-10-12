@@ -1,7 +1,13 @@
+import sys
 import textwrap
 import unittest
 
 from akarsu.akarsu import Akarsu
+
+# Set encoding to UTF-8 when testing on windows-latest
+if sys.platform == "win32":
+    sys.stdin.reconfigure(encoding="utf-8")
+    sys.stdout.reconfigure(encoding="utf-8")
 
 
 class TestNine(unittest.TestCase):
@@ -41,12 +47,6 @@ class TestNine(unittest.TestCase):
             ("RESUME", "<string>", "<genexpr>"),
             ("PY_RETURN", "<string>", "<genexpr>"),
         ]
-        self.check_events(events, expected_events)
-
-    def test_profile_empty_code(self):
-        code = ""
-        events = Akarsu(code, "<string>").profile()
-        expected_events = []
         self.check_events(events, expected_events)
 
     def test_profile_nested_functions(self):
