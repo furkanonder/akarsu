@@ -20,4 +20,3 @@ this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Fixed an sum bug in the event count.
 
 [0.2.0]: https://github.com/furkanonder/akarsu/releases/tag/0.2.0
-
