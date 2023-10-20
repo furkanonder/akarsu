@@ -1,5 +1,13 @@
+<div align="center">
+  <img src="https://github.com/furkanonder/akarsu/blob/develop/static/banner.png"/>
+  <a href="https://github.com/furkanonder/akarsu/actions"><img alt="Actions Status" src="https://github.com/furkanonder/akarsu/workflows/Test/badge.svg"></a>
+  <a href="https://github.com/furkanonder/akarsu/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/furkanonder/akarsu"></a>
+  <a href="https://github.com/furkanonder/akarsu/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/furkanonder/akarsu"></a>
+  <a href="https://github.com/furkanonder/akarsu/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/furkanonder/akarsu"></a>
+  <a href="https://pepy.tech/project/akarsu"><img alt="Downloads" src="https://pepy.tech/badge/akarsu"></a>
+</div>
 
-![banner](static/banner.png)
+---
 
 _akarsu_ is the New Generation Profiler based on
 [PEP 669](https://peps.python.org/pep-0669/). The name of the project, comes from the
