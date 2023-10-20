@@ -1,3 +1,6 @@
+
+![banner](static/banner.png)
+
 _akarsu_ is the New Generation Profiler based on
 [PEP 669](https://peps.python.org/pep-0669/). The name of the project, comes from the
 surname of a minstrel named `Muhlis Akarsu`, which means `stream`.
