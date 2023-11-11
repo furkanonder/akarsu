@@ -1,17 +1,19 @@
 repos:
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 23.9.1
+    rev: 23.10.1
     hooks:
       - id: black
 
-  - repo: https://github.com/hakancelikdev/unimport
-    rev: 1.0.0
-    hooks:
-      - id: unimport
-        args: [--remove, --include-star-import]
+  # unimport does not work with python 3.12 due to the removal of distutils
+  # Uncomment when unimport is updated to support python 3.12
+  # - repo: https://github.com/hakancelikdev/unimport
+  #   rev: 1.0.0
+  #   hooks:
+  #     - id: unimport
+  #       args: [--remove, --include-star-import]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.6.0
+    rev: v1.6.1
     hooks:
       - id: mypy
         exclude: docs
@@ -22,7 +24,7 @@ repos:
             --disallow-incomplete-defs,
             --explicit-package-bases,
           ]
-        additional_dependencies: [types-toml==0.1.3]
+        additional_dependencies: [types-toml]
 
   - repo: https://github.com/PyCQA/docformatter
     rev: v1.7.5
@@ -40,13 +42,25 @@ repos:
     rev: v4.5.0
     hooks:
       - id: end-of-file-fixer
-        files: "\\.(py|.txt|.yaml|.json|.in|.md|.toml|.cfg|.html|.yml)$"
+        files: "\\.(py|.txt|.yaml|.json|.in|.md|.toml|.cfg|.html)$"
       - id: check-case-conflict
       - id: check-merge-conflict
+      - id: check-toml
       - id: check-yaml
       - id: trailing-whitespace
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.292
+    rev: v0.1.4
     hooks:
       - id: ruff
+
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: 1.4.1
+    hooks:
+      - id: pyproject-fmt
+        additional_dependencies: [tox]
+
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.15
+    hooks:
+      - id: validate-pyproject
