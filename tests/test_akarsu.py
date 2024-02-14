@@ -13,7 +13,8 @@ if sys.platform == "win32":
 class TestNine(unittest.TestCase):
     def check_events(self, events, expected_events):
         for event, expected_event in zip(events, expected_events):
-            self.assertEqual(event, expected_event)
+            with self.subTest(event=event, expected_event=expected_event):
+                self.assertEqual(event, expected_event)
 
     def test_profile_print(self):
         code = "print('Hello, world!')"
